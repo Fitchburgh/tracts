@@ -1,5 +1,7 @@
 // all JS lives here.
 
+var $expandCard = $('.expand-card-btn');
+
 var $addCardBtn = $('.addCardBtn');
 var $unitCards = $('.unitCards');
 
@@ -11,6 +13,19 @@ $addCardBtn.click(function() {
   window.location.href = '/unit/add';
   return false;
 });
+
+function getUnitCardSet() {
+  $.ajax({
+      'url': '/unit/index',
+      'method': 'GET',
+      'success': function(unitsByManager) {
+        addFullCard(unitsByManager);
+      },
+      'error': function(error) {
+          alert(error);
+      }
+  });
+}
 
 function addFullCard(unitsByManager) {
   for (var i = 0; i < unitsByManager.length; i++) {
@@ -36,10 +51,10 @@ function addFullCard(unitsByManager) {
     }).text("At a Glance:").appendTo($bodyDiv);// unitInfo needs to contain the li's for the unordered listen
     // card list items
     var $unitAddress = $('<li>').attr({
-      'class': 'address-list'
+      'class': 'address-list list'
     }).text('Address' + ': ' + unitsByManager[i].address).appendTo($unitInfoList);
     var $unitTickets = $('<li>').attr({
-      'class': 'open-tickets'
+      'class': 'open-tickets list'
     }).text('Open Tickets: ' + unitsByManager[i].open_tickets).appendTo($unitInfoList);
     // expand button - redirects to /unit/:unit_id/expanded
     var $expandCard = $('<div>').attr({
@@ -50,20 +65,6 @@ function addFullCard(unitsByManager) {
       'type': 'submit'
     }).text('Expand').appendTo($cardPanel);
   }
-}
-
-function getUnitCardSet() {
-  $.ajax({
-      'url': '/unit/index',
-      'method': 'GET',
-      'success': function(unitsByManager) {
-        addFullCard(unitsByManager);
-        console.log(unitsByManager);
-      },
-      'error': function(error) {
-          alert(error);
-      }
-  });
 }
 
 getUnitCardSet(unitsByManager);

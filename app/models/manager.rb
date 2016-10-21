@@ -10,5 +10,4 @@ class Manager < ApplicationRecord
   # def remember_me
   #    false
   # end
-
 end

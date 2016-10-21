@@ -27,7 +27,8 @@ class UnitController < ApplicationController
   end
 
   def expand
-
+    binding.pry
+    @expanded_unit = Unit.where(id: 1).to_json
   end
 
   private

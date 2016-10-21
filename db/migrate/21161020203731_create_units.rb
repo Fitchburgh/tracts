@@ -6,7 +6,7 @@ class CreateUnits < ActiveRecord::Migration[5.0]
       t.references :owner, index: true, foreign_key: true
       t.string :name
       t.string :address
-      t.integer :open_tickets
+      t.integer :open_tickets, null: false, default: 0
       t.string :tenant_signatory
       t.string :other_tenants
       t.string :notes
