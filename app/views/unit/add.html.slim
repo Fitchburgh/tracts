@@ -1,0 +1,36 @@
+p hi mom
+div.container
+  div.row.col-sm-9
+
+
+    = form_for @unit, url: unit_create_path do |f|
+      div.field
+        = f.label :tenant_id
+        br
+        = f.text_field :tenant_id, {class: "form-control"}
+      div.field
+        = f.label :manager_id
+        br
+        = f.text_field :manager_id, {class: "form-control"}
+      div.field
+        = f.label :owner_id
+        br
+        = f.text_field :owner_id, {class: "form-control"}
+      div.field
+        = f.label :property_name
+        br
+        = f.text_field :name, {class: "form-control"}
+      div.field
+        = f.label :address
+        br
+        = f.text_field :address, {class: "form-control"}
+      div.field
+        = f.label :tenant
+        br
+        = f.text_field :tenant_signatory, {class: "form-control"}
+      div.field
+        = f.label :notes
+        br
+        = f.text_area :notes, {class: "form-control"}
+      div.actions
+        = f.submit

@@ -3,3 +3,35 @@ body {
   color: white;
   font-family: 'Droid Sans', sans-serif;
 }
+
+.unitCards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.card {
+  margin: 20px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  background-color: rgba(91, 192, 222, 1);
+}
+
+.search-bar {
+  max-width: 50%;
+}
+
+.card-title {
+  font-size: 25px;
+}
+
+.card-body {
+  font-size: 16px;
+  /*position: relative;*/
+}
+
+.card-head {
+  /*background-color: rgba(62, 146, 202, 1);*/
+}

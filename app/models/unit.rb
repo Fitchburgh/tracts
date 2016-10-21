@@ -6,6 +6,6 @@ class Unit < ApplicationRecord
   def self.all_units(manager)
     @managed_units = Unit.where(
       manager_id: manager.id
-    ).map { |n| n[:name] }
+    )
   end
 end

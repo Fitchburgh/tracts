@@ -1,3 +1,4 @@
+#
 class Manager < ApplicationRecord
   has_many :units
   has_many :tenants

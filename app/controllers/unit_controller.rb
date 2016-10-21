@@ -12,4 +12,27 @@ class UnitController < ApplicationController
       format.html { render :index }
     end
   end
+
+  def add
+    @unit = Unit.new
+  end
+
+  def create
+    @unit = Unit.new(unit_params)
+    if @unit.save
+      redirect_to unit_index_path
+    else
+      render ''
+    end
+  end
+
+  def expand
+
+  end
+
+  private
+
+  def unit_params
+    params.require(:unit).permit(:tenant_id, :manager_id, :owner_id, :name, :notes, :address, :tenant_signatory)
+  end
 end
