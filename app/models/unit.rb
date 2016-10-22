@@ -8,4 +8,8 @@ class Unit < ApplicationRecord
       manager_id: manager.id
     )
   end
+
+  def self.auto_manager_id(manager)
+    'hi'# when creating a new unit auto populate DB's manager_id column with current manager
+  end
 end

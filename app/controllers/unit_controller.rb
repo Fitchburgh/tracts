@@ -1,7 +1,8 @@
+#
 class UnitController < ApplicationController
   def index
     if current_manager == nil
-      redirect_to '/managers/sign_in'
+      redirect_to '/managers/registration'
     end
     @managed_units = Unit.all_units(current_manager).to_json
 
@@ -27,7 +28,6 @@ class UnitController < ApplicationController
   end
 
   def expand
-    binding.pry
     @expanded_unit = Unit.where(id: 1).to_json
   end
 

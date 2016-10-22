@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   post 'unit/create'
 
-  devise_for :managers # , :controllers => { registrations: 'registrations' }
+  devise_for :managers, :controllers => { registrations: 'registrations' }
 
   root to: 'unit#index'
 

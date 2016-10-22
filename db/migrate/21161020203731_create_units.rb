@@ -2,7 +2,7 @@ class CreateUnits < ActiveRecord::Migration[5.0]
   def change
     create_table :units do |t|
       t.references :tenant, index: true, foreign_key: true
-      t.references :manager, index: true, foreign_key: true
+      t.references :manager, index: true, foreign_key: true, default: current_manager.id
       t.references :owner, index: true, foreign_key: true
       t.string :name
       t.string :address
