@@ -88,7 +88,8 @@ function addFullCard(unitsByManager) {
   $expandCard.on('click', 'button', function(){
     console.log('hi');
   });
-}
+} // probably want to try and do something with an index here for getting the expand buttons to work.
+
 
 getUnitCardSet(unitsByManager);
 

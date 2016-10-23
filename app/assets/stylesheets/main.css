@@ -4,6 +4,14 @@ body {
   font-family: 'Droid Sans', sans-serif;
 }
 
+.field {
+  color: black;
+}
+
+.actions {
+  color: black;
+}
+
 .unitCards {
   display: flex;
   flex-wrap: wrap;
