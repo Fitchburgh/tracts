@@ -1,5 +1,7 @@
-// all JS lives here.
+// button type="submit" class="btn btn-primary sign-out-button"Sign Out
 
+// all JS lives here.
+var $searchBar = $('.search-bar');
 var $expandCard = $('.expand-card-btn');
 
 var $addCardBtn = $('.addCardBtn');
@@ -7,7 +9,7 @@ var $unitCards = $('.unitCards');
 
 var unitsByManager = '';
 
-var $signOutBtn = $('.sign-out-button')
+var $signOutBtn = $('.sign-out-button');
 
 var error = 'Help me computer!';
 
@@ -15,6 +17,8 @@ $addCardBtn.click(function() {
   window.location.href = '/unit/add';
   return false;
 });
+
+
 
 function getUnitCardSet() {
   $.ajax({
@@ -31,6 +35,7 @@ function getUnitCardSet() {
 
 $signOutBtn.click(function() {
   window.location.href = '/managers/sign_out';
+  return false;
 });
 
 function addFullCard(unitsByManager) {
@@ -69,6 +74,8 @@ function addFullCard(unitsByManager) {
       'class': 'open-tickets list'
     }).text('Open Tickets: ' + unitsByManager[i].open_tickets).appendTo($unitInfoList);
 
+    // $('.foobar').appendTo($cardPanel);
+
     // expand button - redirects to /unit/:unit_id/expanded
     var $expandCard = $('<div>').attr({
       'class': 'input-group expand-card'
@@ -78,6 +85,22 @@ function addFullCard(unitsByManager) {
       'type': 'submit'
     }).text('Expand').appendTo($cardPanel);
   }
+  $expandCard.on('click', 'button', function(){
+    console.log('hi');
+  });
 }
 
 getUnitCardSet(unitsByManager);
+
+
+// var counter = 0;
+//
+// $("button").click(function() {
+//     $("h2").append("<p class='test'>click me " + (++counter) + "</p>")
+// });
+//
+// // With on():
+//
+// $("h2").on("click", "p.test", function(){
+//     alert($(this).text());
+// });
