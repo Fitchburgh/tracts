@@ -18,18 +18,39 @@ $addCardBtn.click(function() {
   return false;
 });
 
+// $('.search-bar')
 
+
+$('#userInput').keyup(function() {
+    var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+    $('.card').show().filter(function() {
+        var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+        return !~text.indexOf(val);
+    }).hide();
+});
+
+$expandCard.on('click', function() {
+  window.location.href = '/unit/expand';
+  return false;
+});
+
+function getOwnerInfo() {
+  $.ajax({
+    'url': ''
+  });
+}
 
 function getUnitCardSet() {
   $.ajax({
-      'url': '/unit/index',
-      'method': 'GET',
-      'success': function(unitsByManager) {
-        addFullCard(unitsByManager);
-      },
-      'error': function(error) {
-          alert(error);
-      }
+    'url': '/unit/index',
+    'method': 'GET',
+    'success': function(unitsByManager) {
+      addFullCard(unitsByManager);
+    },
+    'error': function(error) {
+        alert(error);
+    }
   });
 }
 
@@ -85,9 +106,6 @@ function addFullCard(unitsByManager) {
       'type': 'submit'
     }).text('Expand').appendTo($cardPanel);
   }
-  $expandCard.on('click', 'button', function(){
-    console.log('hi');
-  });
 } // probably want to try and do something with an index here for getting the expand buttons to work.
 
 

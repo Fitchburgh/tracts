@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  get 'unit/edit'
+
   # get '/'
   # link_to 'Sign out', destroy_manager_session_path, :method => :delete
 

@@ -10,4 +10,7 @@ class Manager < ApplicationRecord
   # def remember_me
   #    false
   # end
+  def populate_manager_in_form
+    @manager = current_manager.id
+  end
 end
