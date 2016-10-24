@@ -1,5 +1,3 @@
-// button type="submit" class="btn btn-primary sign-out-button"Sign Out
-
 // all JS lives here.
 var $searchBar = $('.search-bar');
 var $expandCard = $('.expand-card-btn');
@@ -17,8 +15,6 @@ $addCardBtn.click(function() {
   window.location.href = '/unit/add';
   return false;
 });
-
-// $('.search-bar')
 
 
 $('#userInput').keyup(function() {
@@ -49,15 +45,28 @@ function getUnitCardSet() {
       addFullCard(unitsByManager);
     },
     'error': function(error) {
-        alert(error);
+      alert(error);
     }
   });
 }
+
+function getTenantList() {
+  $.ajax({
+    'url': '/tenant/index',
+    'method': 'GET',
+    'success': function(fullTenantList) {
+
+    },
+    'error': function(error) {
+      alert(error);
+    }
+});
 
 $signOutBtn.click(function() {
   window.location.href = '/managers/sign_out';
   return false;
 });
+}
 
 function addFullCard(unitsByManager) {
   for (var i = 0; i < unitsByManager.length; i++) {
@@ -94,7 +103,9 @@ function addFullCard(unitsByManager) {
     var $unitTickets = $('<li>').attr({
       'class': 'open-tickets list'
     }).text('Open Tickets: ' + unitsByManager[i].open_tickets).appendTo($unitInfoList);
-
+    var $unitNotes = $('<li>').attr({
+      'class': 'notes list'
+    }).text('Notes: ' + unitsByManager[i].notes).appendTo($unitInfoList);
     // $('.foobar').appendTo($cardPanel);
 
     // expand button - redirects to /unit/:unit_id/expanded

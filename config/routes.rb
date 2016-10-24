@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tenant/index'
+
   get 'home/index'
 
   get 'unit/index'
